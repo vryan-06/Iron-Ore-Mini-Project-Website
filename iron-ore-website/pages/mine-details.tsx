@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import firebase from 'firebase/app';
+// import firebase from 'firebase/app';
 import 'firebase/firestore';
+import firebase from 'firebase/compat/app'; 
+import 'firebase/compat/firestore';
 import 'firebase/auth';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+
 
 export default function MineDetails() {
   const [mineName, setMineName] = useState('');

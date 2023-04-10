@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { FormEvent, MouseEvent, useState } from 'react'
 import axios from "axios";
 import "firebase/database";
 import { collection, addDoc } from "firebase/firestore";
@@ -28,7 +28,7 @@ export default function Form() {
 
       const [prediction, setPrediction] = useState("-");
     
-      const handleSubmit = async (e) => {
+      const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         await axios
           .post("http://127.0.0.1:5000/predict", {
@@ -56,7 +56,7 @@ export default function Form() {
         });
       };
     
-      const handleInputChange = (e) => {
+      const handleInputChange = (e: { target: { id: any; value: any; }; }) => {
         const { id, value } = e.target;
         setInputValues((prevState) => ({
           ...prevState,
