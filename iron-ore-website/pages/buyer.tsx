@@ -5,18 +5,18 @@ import { db } from "@/lib/firebase";
 import { useEffect, useState } from "react";
 
 export default function Buyer() {
-  const [data, setData] = useState([]);
-  const [selectedData, setSelectedData] = useState(null);
+  const [data, setData] = useState<any[]>([]);
+  const [selectedData, setSelectedData] = useState<any>();
 
   useEffect(() => {
     const fetchData = async () => {
       const formDataRef = collection(db, "formData");
       const snapshot = await getDocs(formDataRef);
-      const data = snapshot.docs.map((doc) => ({
+      const tempData = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-      setData(data);
+      setData(tempData);
     };
 
     fetchData();
