@@ -5,9 +5,12 @@ import { collection, addDoc } from "firebase/firestore";
 import { db } from "../lib/firebase"
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Head from 'next/head';
 
 export default function Form() {
     const [inputValues, setInputValues] = useState({
+        mineName: "",
+        mineLocation: "",
         feed1: "56.298307",
         feed2: "14.648984",
         flow1: "2869.636615",
@@ -63,13 +66,40 @@ export default function Form() {
 
     return(
     <>
+    <Head>
+        <title>FeroCity</title>
+    </Head>
     <Navbar></Navbar>
-    <div className='max-w-md mx-auto mt-10 p-6 rounded-lg shadow-xl bg-green-500'>
-    <p className="text-xl text-white font-bold mb-4">Prediction results: {Number(prediction).toFixed(2)}</p>
-    </div>
     <div className="max-w-md mx-auto mt-10 p-6 rounded-lg shadow-xl bg-gray-100">
       <form action="#" method="POST">
-        <h1 className="text-lg font-bold mb-4">Enter the values</h1>
+        <h1 className="text-lg font-bold mb-4">Enter the Mine Details</h1>
+        <div className="mb-4">
+          <label htmlFor="mineName" className="block text-gray-700 font-bold mb-2">
+           Mine Name
+          </label>
+          <input
+            type="text"
+            className="input input-bordered w-full max-w-full"
+            id="mineName"
+            autoFocus
+            value={inputValues.mineName}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="mineLocation" className="block text-gray-700 font-bold mb-2">
+            Mine Location
+          </label>
+          <input
+            type="text"
+            className="input input-bordered w-full max-w-full"
+            id="mineLocation"
+            autoFocus
+            value={inputValues.mineLocation}
+            onChange={handleInputChange}
+          />
+        </div>
+        <h1 className="text-lg font-bold mb-4">Enter the Ore's Details</h1>
         <div className="mb-4">
           <label htmlFor="feed1" className="block text-gray-700 font-bold mb-2">
             % Iron Feed
@@ -173,6 +203,9 @@ export default function Form() {
           </button>
         </div>
       </form>
+      <div className='max-w-md mx-auto mt-10 p-6 rounded-lg shadow-xl bg-green-500'>
+        <p className="text-xl text-white font-bold mb-4">Prediction results: {Number(prediction).toFixed(2)}</p>
+      </div>
     </div>
     <Footer></Footer>
     </>

@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import Head from 'next/head'
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { useEffect, useState } from "react";
@@ -23,16 +24,23 @@ export default function Buyer() {
 
   return (
     <>
+    <Head>
+        <title>FeroCity</title>
+    </Head>    
       <Navbar />
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 className="text-2xl font-extrabold text-gray-900">Recent Data</h2>
         {selectedData ? (
-          <div className="bg-white overflow-hidden shadow rounded-lg">
+          <div className="bg-gray-100 overflow-hidden shadow rounded-lg">
             <div className="px-4 py-5 sm:p-6">
               <h3 className="text-lg leading-6 font-medium text-gray-900">
                 Quality: {selectedData.prediction}
               </h3>
-              <div className="mt-2 max-w-xl text-sm text-gray-500">
+              <div className="mt-2 max-w-xl text-sm">
+                <p>Mine Name: {selectedData.inputValues.mineName}</p>
+                <p>Mine Location: {selectedData.inputValues.mineLocation}</p>
+              </div>
+              <div className="mt-2 max-w-xl text-sm text-gray-900">
                 <p>Feed 1: {selectedData.inputValues.feed1}</p>
                 <p>Feed 2: {selectedData.inputValues.feed2}</p>
                 <p>Flow 1: {selectedData.inputValues.flow1}</p>
@@ -61,13 +69,17 @@ export default function Buyer() {
               <div
                 key={formData.id}
                 onClick={() => setSelectedData(formData)}
-                className="bg-white overflow-hidden shadow rounded-lg cursor-pointer"
+                className="bg-gray-100 overflow-hidden shadow rounded-lg cursor-pointer"
                 >
                 <div className="px-4 py-5 sm:p-6">
-                <h3 className="text-lg leading-6 font-medium text-gray-900">
+                <h4 className="text-lg leading-6 font-medium text-gray-900">
+                Mine Name: 
+                {(formData.inputValues.mineName)}
+                </h4>
+                <h4 className="text-lg leading-6 font-medium text-gray-900">
                 Quality: 
-                {formData.prediction}
-                </h3>
+                {Number(formData.prediction).toFixed(2)}
+                </h4>
                 </div>
                 </div>
             ))}

@@ -44,6 +44,10 @@ def predict():
         try:
             reqData = request.json
             df = pd.DataFrame([reqData])
+            # print(df.columns)
+            df = df.drop(["mineName", "mineLocation"], axis='columns')
+            # print(df)
+            # print(df.columns)
             df = np.array(df.astype("float64"))
             scaler = StandardScaler()
             scaler.mean_ = mean
@@ -51,6 +55,7 @@ def predict():
             scaler.var_ = var
             scaler.n_samples_seen_=n_samples_seen
             inp = scaler.transform(df)
+            print(inp)
             prediction = model.predict(inp)
 
             return jsonify({"predicted" : list(prediction)})

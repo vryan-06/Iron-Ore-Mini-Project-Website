@@ -58,14 +58,14 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              {/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button className="rounded-md border border-green-500 px-3 py-2 text-sm font-medium text-white hover:bg-green-500 hover:text-white  hover:shadow-lg">
                   <Link href="/signup">Register</Link>
                 </button>
                 <button className="ml-4 rounded-md border border-green-500 px-3 py-2 text-sm font-medium text-white hover:bg-green-500 hover:text-white  hover:shadow-lg">
                   <Link href="/login">Login</Link>
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
 
