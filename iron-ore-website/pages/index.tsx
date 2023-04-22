@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import MainPage from './MainPage'
+import MainPage from '@/components/MainPage'
 
 // const inter = Inter({ subsets: ['latin'] })
 
