@@ -10,8 +10,8 @@ export interface UserStore {
 }
 
 interface UserState {
-  user?: UserStore;
-  setUser: (user: UserStore) => void;
+  user?: any;
+  setUser: (user: any) => void;
   removeUser: () => void;
 }
 
@@ -20,4 +20,3 @@ export const useUserStore = create<UserState>((set) => ({
   setUser: (user: UserStore) => set({ user }),
   removeUser: () => set({ user: undefined }),
 }));
-

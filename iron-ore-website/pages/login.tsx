@@ -19,9 +19,9 @@ const SignInForm = () => {
     <>
       <Navbar />
       <div className="flex items-center min-h-screen px-4 bg-gray-100">
-        <div className="w-full max-w-3xl mx-auto shadow-xl bg-base-100 rounded-xl"> 
+        <div className="w-full max-w-3xl mx-auto shadow-xl bg-base-100 rounded-xl">
           <div className="px-4 py-8">
-            <LoginForm/>
+            <LoginForm />
           </div>
         </div>
       </div>
@@ -37,8 +37,8 @@ interface LoginFormType {
 
 function LoginForm() {
   const router = useRouter();
-  const [error, setError] = useState('');
-  const { setUser } = useUserStore(); 
+  const [error, setError] = useState("");
+  const { setUser } = useUserStore();
 
   const { register, handleSubmit } = useForm<LoginFormType>();
 
@@ -46,15 +46,16 @@ function LoginForm() {
     const { email, password, ...rest } = data;
 
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const userId = userCredential.user.uid;
-      const userDoc = await getDoc(doc(db,"users", userId));
-      const userDocdata: UserStore=userDoc.data();
-      setUser({
-        id:userId,
-        ...userDocdata
-      })
-      router.push(userDoc.data()?.type==="Buyer"?"/buyer":"/prediction");
+      const userDoc = await getDoc(doc(db, "users", userId));
+      const userDocData = { id: userId, ...userDoc.data() };
+      setUser(userDocData);
+      router.push(userDoc.data()?.type === "Buyer" ? "/buyer" : "/prediction");
     } catch (error) {
       console.error(error);
     }
@@ -82,7 +83,7 @@ function LoginForm() {
           className="input input-bordered"
         />
       </div>
-    
+
       <div className="mt-5 form-control">
         <button className="btn-primary btn">Login</button>
       </div>
