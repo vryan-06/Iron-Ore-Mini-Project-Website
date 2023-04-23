@@ -14,14 +14,14 @@ function classNames(...classes: string[]) {
 
 export default function Navbar() {
   return (
-    <Disclosure as="nav" className="text-white bg-white">
+    <Disclosure as="nav" className="bg-white">
       {({ open }) => (
         <>
           <div className="px-2 mx-auto min-w-7xl sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-16 mx-0 md:mx-20">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 text-white rounded-md hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md hover:bg-green-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <X className="block w-6 h-6" aria-hidden="true" />
