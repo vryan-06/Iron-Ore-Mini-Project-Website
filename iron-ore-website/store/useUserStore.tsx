@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-interface UserStore {
+export interface UserStore {
   id: string;
   email: string;
   type: string;
@@ -20,3 +20,4 @@ export const useUserStore = create<UserState>((set) => ({
   setUser: (user: UserStore) => set({ user }),
   removeUser: () => set({ user: undefined }),
 }));
+
