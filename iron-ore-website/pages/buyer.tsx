@@ -29,7 +29,7 @@ export default function Buyer() {
     </Head>    
       <Navbar />
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 className="text-2xl font-extrabold text-gray-900">Recent Data</h2>
+        <h2 className="text-2xl font-bold text-slate-900">Available Iron Mines</h2>
         {selectedData ? (
           <div className="bg-gray-100 overflow-hidden shadow rounded-lg">
             <div className="px-4 py-5 sm:p-6">

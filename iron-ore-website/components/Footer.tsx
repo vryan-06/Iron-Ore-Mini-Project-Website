@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div className="flex flex-col items-center justify-around bg-gray-100 p-3">
+    <div className="flex flex-col items-center justify-around bg-white p-3">
       <h1 className="text-base font-semibold text-gray-800">
         © All rights reserved | Built by Mini Project Group of {' '}
         <span className="cursor-pointer font-semibold hover:text-green-600">

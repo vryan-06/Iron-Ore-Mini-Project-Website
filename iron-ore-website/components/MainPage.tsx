@@ -1,11 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import HeroImage from '../images/mine.jpg';
+import mineImage from '../images/mine2.jpg';
 
 export default function MainPage() {
   return (
-    <div className='flex flex-col items-center justify-center h-screen w-fit'>
+    <div className='flex flex-col items-center justify-center h-screen w-fit bg-zinc-100'>
       <div className='flex flex-col md:flex-row items-center justify-center w-full md:w-4/5'>
         <div className='md:w-1/2 md:mr-5'>
           <h1 className='text-4xl md:text-6xl font-bold text-gray-900'>
@@ -29,7 +29,7 @@ export default function MainPage() {
         </div>
         <div className='hidden md:block'>
           <Image
-            src={HeroImage}
+            src={mineImage}
             // width={1000}
             height={400}
             alt="Mine"
