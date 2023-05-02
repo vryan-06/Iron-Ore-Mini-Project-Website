@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
@@ -11,8 +11,13 @@ import { industries } from "@/constants/industries";
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const SignupForm = () => {
+const SignUpForm = () => {
+  const router = useRouter();
   const [signUpType, setSignUpType] = useState("Buyer");
+
+  useEffect(() => {
+    auth.currentUser && router.push("/");
+  }, []);
 
   return (
     <>
@@ -213,4 +218,4 @@ function SellerForm() {
   );
 }
 
-export default SignupForm;
+export default SignUpForm;

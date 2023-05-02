@@ -4,6 +4,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import GuardedPage from "@/components/GuardedPage";
 
 export default function Buyer() {
   const [data, setData] = useState<any[]>([]);
@@ -26,7 +27,7 @@ export default function Buyer() {
   }, []);
 
   return (
-    <>
+    <GuardedPage role="Buyer">
       <Head>
         <title>FeroCity</title>
       </Head>
@@ -41,22 +42,31 @@ export default function Buyer() {
             <div
               key={formData.id}
               onClick={() => router.push(`/ore/${formData.id}`)}
-              className="overflow-hidden bg-gray-100 rounded-lg shadow cursor-pointer"
+              className="shadow-lg cursor-pointer card"
             >
-              <div className="px-4 py-5 sm:p-6">
-                <h4 className="text-lg font-medium leading-6 text-gray-900">
-                  Mine Name: 
+              <div className="card-body">
+                <h1 className="mb-3 text-2xl font-bold">
                   {formData.inputValues.mineName}
-                </h4>
-                <h4 className="text-lg font-medium leading-6 text-gray-900">
-                  Quality: 
-                  {Number(formData.prediction).toFixed(2)}
-                </h4>
+                </h1>
+
+                <div className="gap-2 btn">
+                  Quality
+                  <div className="badge badge-primary">
+                    {Number(formData.prediction).toFixed(2)}
+                  </div>
+                </div>
+
+                <div className="btn-group ">
+                  <div className="text-xs btn">Quality</div>
+                  <div className="btn btn-primary">
+                    {Number(formData.prediction).toFixed(2)}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-    </>
+    </GuardedPage>
   );
 }

@@ -1,6 +1,6 @@
 import { app } from "@/lib/firebase";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
-import { Backspace } from "heroicons-react";
+import { ChevronLeft } from "heroicons-react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -25,12 +25,15 @@ export default function Ore() {
 
   return (
     <div className="container mx-4 my-10 prose">
-      <button className="gap-2 mb-5 btn-md btn" onClick={() => router.back()}>
-        <Backspace />
+      <button
+        className="gap-2 pl-2 pr-5 mb-5 btn btn-ghost"
+        onClick={() => router.back()}
+      >
+        <ChevronLeft />
         Back
       </button>
 
-      <h1>{id}</h1>
+      <h1>{ore?.inputValues.mineName}</h1>
 
       <h3>Quality : {ore?.prediction}</h3>
 
@@ -42,11 +45,15 @@ export default function Ore() {
         </thead>
         <tbody>
           <tr>
-            <td>Mine Name</td>
+            <td>Id</td>
+            <td>{id}</td>
+          </tr>
+          <tr>
+            <td>Name</td>
             <td>{ore?.inputValues.mineName}</td>
           </tr>
           <tr>
-            <td>Mine Location</td>
+            <td>Location</td>
             <td>{ore?.inputValues.mineLocation}</td>
           </tr>
         </tbody>

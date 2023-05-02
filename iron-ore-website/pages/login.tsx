@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
@@ -41,6 +41,10 @@ function LoginForm() {
   const { setUser } = useUserStore();
 
   const { register, handleSubmit } = useForm<LoginFormType>();
+
+  useEffect(() => {
+    auth.currentUser && router.push("/");
+  }, []);
 
   const onSubmit = async (data: LoginFormType) => {
     const { email, password, ...rest } = data;
