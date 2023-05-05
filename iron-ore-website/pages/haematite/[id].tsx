@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import { app } from "@/lib/firebase";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { ChevronLeft } from "heroicons-react";
@@ -22,83 +23,85 @@ export default function Ore() {
       })
       .catch((err) => console.error(err));
   }, []);
-  
-
-  
 
   return (
-    <div className="container mx-4 my-10 prose">
-      <button
-        className="gap-2 pl-2 pr-5 mb-5 btn btn-ghost"
-        onClick={() => router.back()}
-      >
-        <ChevronLeft />
-        Back
-      </button>
+    <>
+      <Navbar />
+      <div className="container px-4 mx-auto my-10">
+        <div className="max-w-full prose">
+          <button
+            className="gap-2 pl-2 pr-5 mb-5 btn btn-ghost"
+            onClick={() => router.back()}
+          >
+            <ChevronLeft />
+            Back
+          </button>
 
-      <h1>{ore?.inputValues.mineName}</h1>
+          <h1>{ore?.inputValues.mineName}</h1>
 
-      <h3>Quality : {Number(ore?.inputValues.prediction).toFixed(2)}</h3>
+          <h3>Quality : {Number(ore?.inputValues.prediction).toFixed(2)}</h3>
 
-      <table>
-        <thead>
-          <tr>
-            <th colSpan={2}>Mine Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Id</td>
-            <td>{id}</td>
-          </tr>
-          <tr>
-            <td>Name</td>
-            <td>{ore?.inputValues.mineName}</td>
-          </tr>
-          <tr>
-            <td>Location</td>
-            <td>{ore?.inputValues.mineLocation}</td>
-          </tr>
-        </tbody>
-      </table>
+          <table>
+            <thead>
+              <tr>
+                <th colSpan={2}>Mine Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Id</td>
+                <td>{id}</td>
+              </tr>
+              <tr>
+                <td>Name</td>
+                <td>{ore?.inputValues.mineName}</td>
+              </tr>
+              <tr>
+                <td>Location</td>
+                <td>{ore?.inputValues.mineLocation}</td>
+              </tr>
+            </tbody>
+          </table>
 
-      <table>
-        <thead>
-          <tr>
-            <th colSpan={2}>Ore Information</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>% Iron Feed</td>
-            <td> {ore?.inputValues.feed1}</td>
-          </tr>
-          <tr>
-            <td>% Silica Feed</td>
-            <td>{ore?.inputValues.feed2}</td>
-          </tr>
-          <tr>
-            <td>Starch Flow</td>
-            <td>{ore?.inputValues.flow1}</td>
-          </tr>
-          <tr>
-            <td>Amina Flow</td>
-            <td>{ore?.inputValues.flow2}</td>
-          </tr>
-          <tr>
-            <td>Ore Pulp Flow</td>
-            <td>{ore?.inputValues.flow3}</td>
-          </tr>
-          <tr>
-            <td>Ore pH</td>
-            <td>{ore?.inputValues.ph}</td>
-          </tr>
-          <tr>
-            <td>Ore Density</td>
-            <td>{ore?.inputValues.density}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          <table>
+            <thead>
+              <tr>
+                <th colSpan={2}>Ore Information</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>% Iron Feed</td>
+                <td> {ore?.inputValues.feed1}</td>
+              </tr>
+              <tr>
+                <td>% Silica Feed</td>
+                <td>{ore?.inputValues.feed2}</td>
+              </tr>
+              <tr>
+                <td>Starch Flow</td>
+                <td>{ore?.inputValues.flow1}</td>
+              </tr>
+              <tr>
+                <td>Amina Flow</td>
+                <td>{ore?.inputValues.flow2}</td>
+              </tr>
+              <tr>
+                <td>Ore Pulp Flow</td>
+                <td>{ore?.inputValues.flow3}</td>
+              </tr>
+              <tr>
+                <td>Ore pH</td>
+                <td>{ore?.inputValues.ph}</td>
+              </tr>
+              <tr>
+                <td>Ore Density</td>
+                <td>{ore?.inputValues.density}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </>
   );
 }

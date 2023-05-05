@@ -43,29 +43,26 @@ export default function Buyer() {
             <div
               key={formData.id}
               onClick={() => {
-                if (formData.inputValues.ore_type === 'Haematite') {
+                if (formData.inputValues.ore_type === "Haematite") {
                   router.push(`/haematite/${formData.id}`);
                 } else {
                   router.push(`/other/${formData.id}`);
                 }
               }}
-              className="shadow-lg cursor-pointer card transform hover:-translate-y-1 hover:translate-x-1 hover:shadow-2xl hover:bg-green-50"
+              className="duration-200 transform shadow-lg cursor-pointer card hover:-translate-y-1 hover:translate-x-1 hover:shadow-2xl hover:bg-green-50"
             >
               <div className="card-body">
                 <h1 className="mb-3 text-2xl font-bold">
                   {formData.inputValues.mineName}
                 </h1>
 
-                <div className="gap-2 btn">
-                  Type:
-                  <div className="badge badge-outline">
-                    {formData.inputValues.ore_type}
-                  </div>
+                <div className="btn btn-sm w-fit">
+                  {formData.inputValues.ore_type}
                 </div>
 
-                <div className="btn-group ">
-                  <div className="text-xs btn">Quality</div>
-                  <div className="btn btn-primary">
+                <div className="btn-group">
+                  <div className="text-xs btn btn-sm btn-outline">Quality</div>
+                  <div className="btn btn-sm btn-primary">
                     {Number(formData.inputValues.prediction).toFixed(2)}
                   </div>
                 </div>
@@ -74,7 +71,7 @@ export default function Buyer() {
           ))}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </GuardedPage>
   );
 }
