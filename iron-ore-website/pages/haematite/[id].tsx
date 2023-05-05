@@ -22,6 +22,9 @@ export default function Ore() {
       })
       .catch((err) => console.error(err));
   }, []);
+  
+
+  
 
   return (
     <div className="container mx-4 my-10 prose">
@@ -35,7 +38,7 @@ export default function Ore() {
 
       <h1>{ore?.inputValues.mineName}</h1>
 
-      <h3>Quality : {ore?.prediction}</h3>
+      <h3>Quality : {Number(ore?.inputValues.prediction).toFixed(2)}</h3>
 
       <table>
         <thead>
@@ -67,56 +70,32 @@ export default function Ore() {
         </thead>
         <tbody>
           <tr>
-            <td>Feed 1</td>
+            <td>% Iron Feed</td>
             <td> {ore?.inputValues.feed1}</td>
           </tr>
           <tr>
-            <td>Feed 2</td>
+            <td>% Silica Feed</td>
             <td>{ore?.inputValues.feed2}</td>
           </tr>
           <tr>
-            <td>Flow 1</td>
+            <td>Starch Flow</td>
             <td>{ore?.inputValues.flow1}</td>
           </tr>
           <tr>
-            <td>Flow 2</td>
+            <td>Amina Flow</td>
             <td>{ore?.inputValues.flow2}</td>
           </tr>
           <tr>
-            <td>Flow 3</td>
+            <td>Ore Pulp Flow</td>
             <td>{ore?.inputValues.flow3}</td>
           </tr>
           <tr>
-            <td>pH</td>
+            <td>Ore pH</td>
             <td>{ore?.inputValues.ph}</td>
           </tr>
           <tr>
-            <td>Density</td>
+            <td>Ore Density</td>
             <td>{ore?.inputValues.density}</td>
-          </tr>
-          <tr>
-            <td>Airflow 1</td>
-            <td>{ore?.inputValues.airflow1}</td>
-          </tr>
-          <tr>
-            <td>Airflow 4</td>
-            <td>{ore?.inputValues.airflow4}</td>
-          </tr>
-          <tr>
-            <td>Airflow 7</td>
-            <td>{ore?.inputValues.airflow7}</td>
-          </tr>
-          <tr>
-            <td>Level 1</td>
-            <td>{ore?.inputValues.level1}</td>
-          </tr>
-          <tr>
-            <td>Level 4</td>
-            <td>{ore?.inputValues.level4}</td>
-          </tr>
-          <tr>
-            <td>Level 7</td>
-            <td>{ore?.inputValues.level7}</td>
           </tr>
         </tbody>
       </table>

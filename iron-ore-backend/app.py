@@ -45,7 +45,7 @@ def predict():
             reqData = request.json
             df = pd.DataFrame([reqData])
             # print(df.columns)
-            df = df.drop(["mineName", "mineLocation"], axis='columns')
+            df = df.drop(["mineName", "mineLocation", "ore_type", "prediction"], axis='columns')
             # print(df)
             # print(df.columns)
             df = np.array(df.astype("float64"))

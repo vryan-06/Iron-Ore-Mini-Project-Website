@@ -29,7 +29,7 @@ export default function Buyer() {
   return (
     <GuardedPage role="Buyer">
       <Head>
-        <title>FeroCity</title>
+        <title>Buy Iron Ore</title>
       </Head>
       <Navbar />
       <div className="max-w-screen-xl px-4 py-12 mx-auto sm:px-6 lg:px-8">
@@ -41,8 +41,14 @@ export default function Buyer() {
           {data.map((formData) => (
             <div
               key={formData.id}
-              onClick={() => router.push(`/ore/${formData.id}`)}
-              className="shadow-lg cursor-pointer card"
+              onClick={() => {
+                if (formData.inputValues.ore_type === 'Haematite') {
+                  router.push(`/haematite/${formData.id}`);
+                } else {
+                  router.push(`/other/${formData.id}`);
+                }
+              }}
+              className="shadow-lg cursor-pointer card transform hover:-translate-y-1 hover:translate-x-1 hover:shadow-2xl hover:bg-green-50"
             >
               <div className="card-body">
                 <h1 className="mb-3 text-2xl font-bold">
@@ -50,16 +56,16 @@ export default function Buyer() {
                 </h1>
 
                 <div className="gap-2 btn">
-                  Quality
-                  <div className="badge badge-primary">
-                    {Number(formData.prediction).toFixed(2)}
+                  Type:
+                  <div className="badge badge-outline">
+                    {formData.inputValues.ore_type}
                   </div>
                 </div>
 
                 <div className="btn-group ">
                   <div className="text-xs btn">Quality</div>
                   <div className="btn btn-primary">
-                    {Number(formData.prediction).toFixed(2)}
+                    {Number(formData.inputValues.prediction).toFixed(2)}
                   </div>
                 </div>
               </div>

@@ -59,7 +59,7 @@ function LoginForm() {
       const userDoc = await getDoc(doc(db, "users", userId));
       const userDocData = { id: userId, ...userDoc.data() };
       setUser(userDocData);
-      router.push(userDoc.data()?.type === "Buyer" ? "/buyer" : "/prediction");
+      router.push(userDoc.data()?.type === "Buyer" ? "/buyer" : "/seller");
     } catch (error) {
       console.error(error);
     }

@@ -15,8 +15,13 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "Buy", href: "/buyer" },
   { name: "Sell", href: "/seller" },
-  { name: "Prediction", href: "/prediction" },
+  // { name: "Prediction", href: "/prediction" },
 ];
+
+const register = [
+  { name: "Register", href: "/signup" },
+  { name: "Login", href: "/login" }
+]
 
 const userNav = [{ name: "Profile", href: "/profile" }];
 
@@ -75,6 +80,7 @@ export default function Navbar() {
                     ))}
                   </div>
                 </div>
+
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Profile dropdown */}
@@ -136,14 +142,24 @@ export default function Navbar() {
                     </Transition>
                   </Menu>
                 ) : (
-                  <>
-                    <button className="px-3 py-2 text-sm font-medium text-green-500 border border-green-500 rounded-md hover:bg-green-500 hover:text-white hover:shadow-lg">
-                      <Link href="/signup">Register</Link>
-                    </button>
-                    <button className="px-3 py-2 ml-4 text-sm font-medium text-green-500 border border-green-500 rounded-md hover:bg-green-500 hover:text-white hover:shadow-lg">
-                      <Link href="/login">Login</Link>
-                    </button>
-                  </>
+                  <div className="hidden sm:ml-6 sm:block">
+                    <div className="flex space-x-4">
+                      {register.map((item) => (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          className={classNames(
+                            router.pathname === item.href
+                              ? "bg-green-500 text-white shadow-lg"
+                              : "text-green-500 border border-green-500 hover:bg-green-500 hover:text-white hover:shadow-lg",
+                            "rounded-md px-3 py-2 text-sm font-medium"
+                          )}
+                        >
+                          {item.name}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
                 )}
               </div>
             </div>
@@ -152,6 +168,21 @@ export default function Navbar() {
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
+                <Disclosure.Button
+                  key={item.name}
+                  as="a"
+                  href={item.href}
+                  className={classNames(
+                    router.pathname === item.href
+                      ? "bg-gray-900 text-white"
+                      : "hover:bg-green-500 hover:text-white",
+                    "block rounded-md px-3 py-2 text-base font-medium"
+                  )}
+                >
+                  {item.name}
+                </Disclosure.Button>
+              ))}
+              {register.map((item) => (
                 <Disclosure.Button
                   key={item.name}
                   as="a"

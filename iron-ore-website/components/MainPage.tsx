@@ -20,7 +20,7 @@ export default function MainPage() {
                 <span className='truncate'>Find Top-Quality Iron</span>
               </button>
             </Link>
-            <Link href="/prediction">
+            <Link href="/seller">
             <button className='h-12 px-4 text-lg font-semibold text-green-900 border-2 border-green-600 rounded-lg hover:bg-green-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all duration-200 overflow-hidden'>
                 <span className='truncate'>Post About Your Iron Ore</span>
               </button>

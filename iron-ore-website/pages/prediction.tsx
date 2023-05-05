@@ -11,6 +11,7 @@ export default function Form() {
   const [inputValues, setInputValues] = useState({
     mineName: "",
     mineLocation: "",
+    ore_type: "Haematite",
     feed1: "56.298307",
     feed2: "14.648984",
     flow1: "2869.636615",
@@ -24,6 +25,7 @@ export default function Form() {
     level1: "520.168402",
     level4: "420.169753",
     level7: "420.910258",
+    prediction: "---"
   });
 
   const [prediction, setPrediction] = useState("-");
@@ -41,9 +43,9 @@ export default function Form() {
         }
         const prediction = res.data.predicted[0];
         console.log(prediction);
-        setPrediction(prediction);
+        setInputValues({ ...inputValues, prediction });
 
-        const formData = { inputValues, prediction };
+        const formData = { inputValues: { ...inputValues, prediction } };
         const formDataRef = collection(db, "formData");
         try {
           const docRef = await addDoc(formDataRef, formData);
@@ -269,7 +271,7 @@ export default function Form() {
             <button
               className="w-full btn-primary btn"
               type="submit"
-              // onClick={(e) => handleSubmit(e)}
+            // onClick={(e) => handleSubmit(e)}
             >
               Predict
             </button>
@@ -284,7 +286,7 @@ export default function Form() {
           <div className="items-center card-body">
             <h3>Prediction</h3>
             <h2 className="text-4xl font-bold">
-              {Number(prediction).toFixed(2)}
+              {Number(inputValues.prediction).toFixed(2)}
             </h2>
           </div>
         </div>

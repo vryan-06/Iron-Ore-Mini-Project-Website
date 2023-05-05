@@ -112,7 +112,7 @@ function BuyerForm() {
       </div>
       {/* Type of Industry */}
       <div className="form-control">
-        <label className="label">Type</label>
+        <label className="label">Industry Type</label>
         <select
           {...register("industry_type")}
           className="select select-bordered"
