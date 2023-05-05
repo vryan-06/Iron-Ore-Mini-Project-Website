@@ -25,7 +25,7 @@ export default function Form() {
     level1: "520.168402",
     level4: "420.169753",
     level7: "420.910258",
-    prediction: "---",
+    prediction: "",
   });
 
   const [prediction, setPrediction] = useState("-");
