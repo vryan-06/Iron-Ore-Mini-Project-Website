@@ -191,7 +191,7 @@ function SellerForm() {
         />
       </div>
 
-      {/* Mine Name */}
+      {/* Mine Name
       <div className="form-control">
         <label className="label">Mine Name</label>
         <input
@@ -201,7 +201,7 @@ function SellerForm() {
         />
       </div>
 
-      {/* Mine Location */}
+       Mine Location 
       <div className="form-control">
         <label className="label">Mine Location</label>
         <input
@@ -209,7 +209,7 @@ function SellerForm() {
           type="text"
           className="input input-bordered"
         />
-      </div>
+      </div> */}
 
       <div className="mt-5 form-control">
         <button className="btn-primary btn">Submit</button>
