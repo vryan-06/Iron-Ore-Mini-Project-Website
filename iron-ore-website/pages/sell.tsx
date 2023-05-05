@@ -48,7 +48,7 @@ export default function Form() {
     return (
         <>
             <Head>
-                <title>FeroCity</title>
+                <title>Other Ores</title>
             </Head>
             <Navbar />
             <div className="container px-4 mx-auto my-12">

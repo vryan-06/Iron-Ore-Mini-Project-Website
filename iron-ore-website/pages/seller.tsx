@@ -2,11 +2,16 @@ import GuardedPage from "@/components/GuardedPage";
 import { oreTypes } from "@/constants/ore-types";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import Head from "next/head";
+import Footer from "@/components/Footer";
 
 export default function Seller() {
   return (
     <>
-    <Navbar/>
+      <Navbar />
+      <Head>
+        <title>Sell Iron Ore</title>
+      </Head>
       <GuardedPage role="Seller">
         <div className="flex flex-col items-center justify-center h-screen">
           <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-8">
@@ -23,6 +28,7 @@ export default function Seller() {
           </div>
         </div>
       </GuardedPage>
+      <Footer/>
     </>
   );
 }

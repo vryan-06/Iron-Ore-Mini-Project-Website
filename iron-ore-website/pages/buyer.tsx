@@ -5,6 +5,7 @@ import { db } from "@/lib/firebase";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import GuardedPage from "@/components/GuardedPage";
+import Footer from "@/components/Footer";
 
 export default function Buyer() {
   const [data, setData] = useState<any[]>([]);
@@ -73,6 +74,7 @@ export default function Buyer() {
           ))}
         </div>
       </div>
+      <Footer/>
     </GuardedPage>
   );
 }
