@@ -133,8 +133,8 @@ function BuyerForm() {
 interface SellerFormType {
   email: string;
   password: string;
-  mine_name: string;
-  mine_location: string;
+  // mine_name: string;
+  // mine_location: string;
   industry_type: string;
 }
 
