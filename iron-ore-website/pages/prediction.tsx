@@ -25,7 +25,7 @@ export default function Form() {
     level1: "520.168402",
     level4: "420.169753",
     level7: "420.910258",
-    prediction: "---"
+    prediction: "---",
   });
 
   const [prediction, setPrediction] = useState("-");
@@ -271,7 +271,7 @@ export default function Form() {
             <button
               className="w-full btn-primary btn"
               type="submit"
-            // onClick={(e) => handleSubmit(e)}
+              // onClick={(e) => handleSubmit(e)}
             >
               Predict
             </button>
@@ -282,14 +282,16 @@ export default function Form() {
             Prediction results: {Number(prediction).toFixed(2)}
           </p>
         </div> */}
-        <div className="mt-10 card bg-secondary text-secondary-content">
-          <div className="items-center card-body">
-            <h3>Prediction</h3>
-            <h2 className="text-4xl font-bold">
-              {Number(inputValues.prediction).toFixed(2)}
-            </h2>
+        {inputValues.prediction && (
+          <div className="mt-10 card bg-secondary text-secondary-content">
+            <div className="items-center card-body">
+              <h3>Prediction</h3>
+              <h2 className="text-4xl font-bold">
+                {Number(inputValues.prediction).toFixed(2)}
+              </h2>
+            </div>
           </div>
-        </div>
+        )}
       </div>
       <Footer />
     </>
