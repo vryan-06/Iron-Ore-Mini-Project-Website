@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const { user, setUser } = useUserStore();
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       if (!user) return;
 
       getDoc(doc(collection(db, "users"), user.uid)).then((doc) => {
@@ -20,6 +20,8 @@ export default function App({ Component, pageProps }: AppProps) {
         console.log(doc.data());
       });
     });
+
+    return () => unsubscribe();
   }, []);
 
   return <Component {...pageProps} />;
